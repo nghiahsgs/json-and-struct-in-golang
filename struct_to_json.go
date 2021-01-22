@@ -35,6 +35,11 @@ func main() {
 			Author: author1,
 		},
 	}
+	// or
+	// listBook := make([]Book, <size>, <capacity>)
+	// listBook := make([]Book, 0, 2)
+	// listBook = append(listBook, book1)
+	// listBook = append(listBook, book1)
 
 	// fmt.Println(listBook)
 
