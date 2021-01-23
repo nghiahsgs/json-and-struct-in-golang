@@ -7,6 +7,7 @@ import (
 	"log"
 )
 
+// User : Comment for exported type
 type User struct {
 	Name string `json:"name"`
 	Age  int    `json:"age"`
@@ -15,11 +16,13 @@ type User struct {
 func main() {
 	var listUser []User
 
-	data, err := ioutil.ReadFile("data.json")
-	if err != nil {
+	if data, err := ioutil.ReadFile("data.json"); err != nil {
 		log.Fatal(err)
+	} else {
+		if err := json.Unmarshal(data, &listUser); err != nil {
+			log.Fatal(err)
+		}
 	}
-	json.Unmarshal(data, &listUser)
 
 	fmt.Println(listUser)
 	fmt.Println(len(listUser))

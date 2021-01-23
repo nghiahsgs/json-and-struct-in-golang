@@ -6,6 +6,7 @@ import (
 	"strconv"
 )
 
+// User : Comment for exported type
 type User struct {
 	Name string `json:"name"`
 	Age  int    `json:"age"`
@@ -28,8 +29,7 @@ func main() {
 	// parse list user
 	listUserStr := `[{"name":"nghia","age":23},{"name":"nguyen","age":25}]`
 	var listUser []User
-	err := json.Unmarshal([]byte(listUserStr), &listUser)
-	if err != nil {
+	if err := json.Unmarshal([]byte(listUserStr), &listUser); err != nil {
 		fmt.Println(err)
 	}
 	for _, user := range listUser {
